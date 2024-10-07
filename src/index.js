@@ -56,7 +56,7 @@ const rootRoutes=[
         children:childRoutes
     }
 ]
-const employeesrouter=createBrowserRouter(rootRoutes);
+const employeesrouter=createHashRouter(rootRoutes);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
