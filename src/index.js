@@ -5,7 +5,7 @@ import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
+import { HashRouter, redirect, RouterProvider } from 'react-router-dom';
 import { NeoEmployees } from './components/NeoEmployees.js';
 import { Home } from './components/Home.js';
 import { EmployeeForm } from './components/EmployeeForm.js';
@@ -56,7 +56,7 @@ const rootRoutes=[
         children:childRoutes
     }
 ]
-const employeesrouter=createHashRouter(rootRoutes);
+const employeesrouter=HashRouter(rootRoutes);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
