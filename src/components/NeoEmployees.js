@@ -6,9 +6,28 @@ import { useLoaderData } from "react-router-dom";
 
 export function NeoEmployees(){
     const nameNode=useRef();
-    const data=useLoaderData();
-    let [employees, setEmployees]=useState(data); 
+    let data= null;
+    const [employees, setEmployees] = useState([]);
     let [errorMessage, setMessage]=useState("");
+
+    useEffect(() => {
+        const fetchEmployees = async () => {
+            try {
+                data = await getAllEmployees();
+                // console.log(data);
+                setEmployees(data);
+            } catch (error) {
+                // console.log(error);
+                setMessage('Failed to fetch employees');
+            }
+        };
+
+        fetchEmployees();
+    }, []); // Fetch data once when the component mounts
+
+    // let [employees, setEmployees]=useState(data); 
+    
+
     async function getEmps(){
         const data=await getAllEmployees();
         setEmployees(data);
